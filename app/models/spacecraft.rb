@@ -13,6 +13,9 @@ class Spacecraft < ApplicationRecord
     self.direction = directions.rotate(-1).fetch(current_index, 'N')
   end
 
+  def move_up
+  	self.direction = 'UP'
+	end
 
 	def move_forward
     self.y += 1 if direction == 'N'
