@@ -2,6 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe Spacecraft, type: :model do
+  let(:spacecraft) { Spacecraft.new }
   describe '#move_forward' do
     it 'moves the spacecraft one step forward in the current direction' do
       spacecraft = Spacecraft.new(x: 0, y: 0, z: 0, direction: 'N')
@@ -27,6 +28,22 @@ RSpec.describe Spacecraft, type: :model do
       spacecraft = Spacecraft.new(x: 1, y: 0, z: 0, direction: 'W')
       spacecraft.move_backward
       expect(spacecraft.x).to eq(0)
+    end
+  end
+
+  describe '#move_right' do
+    it 'should move right correctly' do
+      spacecraft.direction = 'N'
+      spacecraft.move_right
+      expect(spacecraft.direction).to eq('E')
+    end
+  end
+
+  describe '#move_left' do
+    it 'turns the spacecraft 90 degrees to the left' do
+      spacecraft = Spacecraft.new(x: 0, y: 0, z: 0, direction: 'N')
+      spacecraft.move_left
+      expect(spacecraft.direction).to eq('W')
     end
   end
 end
