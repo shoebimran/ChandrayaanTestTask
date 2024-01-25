@@ -55,4 +55,12 @@ RSpec.describe Spacecraft, type: :model do
     end
   end
 
+  describe '#move_down' do
+    it 'turns the spacecraft downwards' do
+      spacecraft = Spacecraft.new(x: 0, y: 0, z: 0, direction: 'Up')
+      spacecraft.move_down
+      expect(spacecraft.direction).to eq('Down'.downcase)
+    end
+  end
+
 end

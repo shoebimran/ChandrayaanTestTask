@@ -17,6 +17,10 @@ class Spacecraft < ApplicationRecord
   	self.direction = 'UP'
 	end
 
+	def move_down
+  	self.direction = 'down'
+	end
+
 	def move_forward
     self.y += 1 if direction == 'N'
     self.y -= 1 if direction == 'S'
