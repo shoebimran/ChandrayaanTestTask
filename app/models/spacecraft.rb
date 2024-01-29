@@ -47,5 +47,4 @@ class Spacecraft < ApplicationRecord
       send("#{axis}=", new_position)
     end
   end
-
 end
